@@ -46,7 +46,7 @@ echo "ok"
 
 # init db and config
 echo -n "init db..."
-${INSTALL_DIR}/mysql/scripts/mysql_install_db --user=${MARIADB_USER} --basedir=${INSTALL_DIR}/mysql --datadir=${DATA_DIR}
+${INSTALL_DIR}/mysql/scripts/mysql_install_db.sh --user=${MARIADB_USER} --basedir=${INSTALL_DIR}/mysql --datadir=${DATA_DIR}
 [ $? -ne 0 ] && exit 1
 cp ${INSTALL_DIR}/mysql/support-files/mysql.server /etc/init.d/mysqld
 echo "ok"
@@ -66,7 +66,7 @@ chown -R ${MARIADB_USER} ${DATA_DIR}
 chmod +x /etc/init.d/mysqld
 
 # start mariadb
-${INSTALL_DIR}/mysql/bin/mysqld_safe --user=${MARIADB_USER} & &> /dev/null
+${INSTALL_DIR}/mysql/scripts/mysqld_safe.sh --user=${MARIADB_USER} & &> /dev/null
 [ $? -ne 0 ] && exit 1 || echo "mariadb started ok"
 
 # set root passwd
