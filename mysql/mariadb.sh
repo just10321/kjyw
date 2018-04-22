@@ -12,11 +12,11 @@ INSTALL_DIR="/opt/app"
 DATA_DIR="/opt/data"
 MARIADB_GROUP="mysql"
 MARIADB_USER="mysql"
-MARIADB_VERSION="10.1.20"
+MARIADB_VERSION="10.1.32"
 ROOT_PASSWD="root"
 #mariadb-10.1.20-linux-x86_64.tar.gz
-TAR_NAME="mariadb-${MARIADB_VERSION}-linux-x86_64.tar.gz"
-UNTAR_NAME="mariadb-${MARIADB_VERSION}-linux-x86_64"
+TAR_NAME="mariadb-${MARIADB_VERSION}.tar.gz"
+UNTAR_NAME="mariadb-${MARIADB_VERSION}"
 
 # check mariadb user
 echo -n "check MariaDB user... "
@@ -33,7 +33,8 @@ echo "ok"
 
 # check mariadb file
 if [ ! -f ${TAR_NAME} ];then
- wget http://mirrors.tuna.tsinghua.edu.cn/mariadb//mariadb-${MARIADB_VERSION}/bintar-linux-x86_64/mariadb-${MARIADB_VERSION}-linux-x86_64.tar.gz
+ wget http://mirrors.neusoft.edu.cn/mariadb//mariadb-${MARIADB_VERSION}/source/mariadb-${MARIADB_VERSION}.tar.gz
+#  wget http://mirrors.tuna.tsinghua.edu.cn/mariadb//mariadb-${MARIADB_VERSION}/bintar-linux-x86_64/mariadb-${MARIADB_VERSION}-linux-x86_64.tar.gz
 fi
 
 # untar file
